@@ -51,7 +51,7 @@ async function insertRecords(req,res){
 
     await user.save()
     const token = user.generateAuthToken()
-    res.redirect('http://localhost:3000/login')
+    res.redirect('https://letdis.vercel.app/login')
 }
 exports.user =  async function (req,res,){
 
@@ -69,7 +69,7 @@ exports.user =  async function (req,res,){
         
         if(user){
            //res.json(user)
-           res.redirect(`http://localhost:3000/chat?name=${user.name}&room=${user.topic}&id=${user.tokens[0].id}`)
+           res.redirect(`https://letdis.vercel.app/chat?name=${user.name}&room=${user.topic}&id=${user.tokens[0].id}`)
         }else{
             res.status(401).send("failed to login")
         }
@@ -119,7 +119,7 @@ exports.logout = (req,res)=>{
     const index = user3.indexOf(id)
     if(index===-1){
         console.log(id)
-        res.redirect('http://localhost:3000/login')
+        res.redirect('https://letdis.vercel.app/login')
     }else{
         console.log("there is an error")
     }
@@ -134,7 +134,7 @@ exports.replace = (req,res)=>{
    console.log({name1,room1})
     user3[0].name = name1
     user3[0].room = room1
-    res.redirect('http://localhost:3000/chat')
+    res.redirect('https://letdis.vercel.app/chat')
 }
 
 exports.new = (req,res)=>{
